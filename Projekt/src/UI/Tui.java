@@ -9,4 +9,7 @@ public class Tui {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void newOrder() {
+	}
 }
