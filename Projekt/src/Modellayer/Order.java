@@ -1,27 +1,52 @@
 package Modellayer;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
 	private LocalDate date;
+	/*
+	 * totalPrice fremhæver den nuværende pris på ordren.
+	 * Den vil blive 0 når kunden har betalt.
+	 * Det er derfor vigtigt at vide databasen kan samle den totale pris ud fra orderlines listen
+	 */
 	private double totalPrice;
 	private boolean deliveryStatus;
 	private LocalDate delieveryDate;
+	private Employee emp;
+	private List<Orderline> orderlines;
+	private Customer customer;
 	
-	public Order(LocalDate date, double totalPrice, boolean deliveryStatus, LocalDate delieveryDate) {
+	public Order(Employee emp) {
 		super();
-		this.date = date;
-		this.totalPrice = totalPrice;
-		this.deliveryStatus = deliveryStatus;
-		this.delieveryDate = delieveryDate;
+		this.emp = emp;
+		totalPrice = 0;
+		deliveryStatus = false;
+		delieveryDate = null;
+		date = LocalDate.now();
+		orderlines = new ArrayList<>();
+		customer = null;
+	}
+	
+	public List<Orderline> getOrderLines() {
+		return orderlines;
+	}
+	
+	public void addOrderline(Orderline ol) {
+		orderlines.add(ol);
+	}
+	
+	public Employee getEmployee() {
+		return emp;
+	}
+	
+	public void setEmployee(Employee emp) {
+		this.emp = emp;
 	}
 
 	public LocalDate getDate() {
 		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
 	}
 
 	public double getTotalPrice() {
@@ -46,6 +71,19 @@ public class Order {
 
 	public void setDelieveryDate(LocalDate delieveryDate) {
 		this.delieveryDate = delieveryDate;
+	}
+
+	public void addCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public Order finishOrder(Order o) {
+		o.setTotalPrice(0);
+		return o;
 	}
 	
 }

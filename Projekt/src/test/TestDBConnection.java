@@ -10,9 +10,8 @@ public class TestDBConnection {
         
         // Get a database connection
         Connection con = dbConnection.getConnection();
-        
-    System.out.println("success");
-}
+        if (con != null) {
+        	System.out.println("success");
+        }
     }
-
-
+}

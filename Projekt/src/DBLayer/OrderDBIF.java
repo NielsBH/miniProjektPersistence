@@ -6,7 +6,7 @@ import Modellayer.Employee;
 import Modellayer.Order;
 
 public interface OrderDBIF {
-	void newOrder(Employee emp); 
+	Order addOrder(Order o); 
 	Order buildObject(ResultSet rs);
 	void buildObjects(ResultSet rs);
 }

@@ -6,8 +6,8 @@ public class LoginController implements LoginControllerIF {
 	private static LoginController instance;
 	private Employee emp;
 	
-	public LoginController getInstance() {
-		if (instance != null) {
+	public static LoginController getInstance() {
+		if (instance == null) {
 			instance = new LoginController();
 		}
 		return instance;
@@ -18,11 +18,10 @@ public class LoginController implements LoginControllerIF {
 	}
 
 	@Override
-	public void login(String pincode) {
-		// TODO Auto-generated method stub
-		
+	public void login(Employee emp) {
+		this.emp = emp;
 	}
-
+	
 	@Override
 	public void isLoggedIn() {
 		// TODO Auto-generated method stub
@@ -31,8 +30,7 @@ public class LoginController implements LoginControllerIF {
 
 	@Override
 	public Employee getLoginEmp() {
-		// TODO Auto-generated method stub
-		return null;
+		return emp;
 	}
 
 }

@@ -8,11 +8,11 @@ import Modellayer.Order;
 public class OrderDB implements OrderDBIF{
 
 	@Override
-	public void newOrder(Employee emp) {
+	public Order addOrder(Order o) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
-
+	
 	@Override
 	public Order buildObject(ResultSet rs) {
 		// TODO Auto-generated method stub

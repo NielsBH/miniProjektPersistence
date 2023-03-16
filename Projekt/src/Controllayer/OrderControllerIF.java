@@ -1,9 +1,10 @@
 package Controllayer;
 
+import Modellayer.*;
+
 public interface OrderControllerIF {
-	void createOrder();
-	void scanProduct(String barcode, int quantity);
-	void addCustomer(String email);
-	void addDelivery(String address);
-	void payment();
+	Order createOrder();
+	Orderline scanProduct(String barcode, int quantity);
+	Customer addCustomer(String email);
+	Order payment(Order o);
 }

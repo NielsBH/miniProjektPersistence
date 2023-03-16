@@ -1,5 +1,7 @@
 package Controllayer;
 
+import Modellayer.Product;
+
 public interface ProductControllerIF {
-	void findByBarcode(String barcode);
+	Product findByBarcode(String barcode);
 }

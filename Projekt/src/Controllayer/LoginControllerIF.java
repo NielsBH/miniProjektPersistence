@@ -3,7 +3,7 @@ package Controllayer;
 import Modellayer.Employee;
 
 public interface LoginControllerIF {
-	void login(String pincode);
+	void login(Employee emp);
 	void isLoggedIn();
 	Employee getLoginEmp();
 }
