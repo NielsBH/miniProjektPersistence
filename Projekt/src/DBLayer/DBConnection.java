@@ -1,16 +1,8 @@
 package DBLayer;
 
-import java.sql.Connection;
-
-public class DBConnection {
-	package db;
-
 	import java.sql.Connection;
 	import java.sql.DriverManager;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
 	import java.sql.SQLException;
-	import java.sql.Statement;
 
 	public class DBConnection {
 		private Connection connection = null;
@@ -21,7 +13,7 @@ public class DBConnection {
 		private static final String serverAddress = "hildur.ucn.dk";
 		//private static final String serverAddress = "192.168.56.2";
 		private static final int    serverPort = 1433;
-		private static final String userName = "10461241";
+		private static final String userName = "DMA-CSD-S222_10461241";
 		private static final String password = "Password1!";
 		
 		private DBConnection() {

@@ -1,7 +1,7 @@
+package test;
+
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import DBLayer.DBConnection;
 
 public class TestDBConnection {
     public static void main(String[] args) {
@@ -9,8 +9,10 @@ public class TestDBConnection {
         DBConnection dbConnection = DBConnection.getInstance();
         
         // Get a database connection
-        Connection conn = dbConnection.getConnection();
+        Connection con = dbConnection.getConnection();
+        
+    System.out.println("success");
 }
     }
-}
+
 
