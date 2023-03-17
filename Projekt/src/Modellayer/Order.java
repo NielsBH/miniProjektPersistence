@@ -17,6 +17,8 @@ public class Order {
 	private Employee emp;
 	private List<Orderline> orderlines;
 	private Customer customer;
+	private int orderID;
+	private int invoiceID;
 	
 	public Order(Employee emp) {
 		super();
@@ -35,6 +37,11 @@ public class Order {
 	
 	public void addOrderline(Orderline ol) {
 		orderlines.add(ol);
+		for(Orderline ole : orderlines) {
+			double price = ole.getProduct().getSalePrice();
+			double total = (price *= ole.getQuantity());
+			setTotalPrice(total);
+		}
 	}
 	
 	public Employee getEmployee() {
@@ -54,7 +61,7 @@ public class Order {
 	}
 
 	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
+		this.totalPrice += totalPrice;
 	}
 
 	public boolean isDeliveryStatus() {
@@ -85,5 +92,19 @@ public class Order {
 		o.setTotalPrice(0);
 		return o;
 	}
-	
+
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
+	public int getOrderID() {
+		return orderID;
+	}
+
+	public int getInvoiceID() {
+		return invoiceID;
+	}
+
+	public void setInvoiceID(int invoiceID) {
+		this.invoiceID = invoiceID;
+	}
 }

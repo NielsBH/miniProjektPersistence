@@ -3,10 +3,10 @@ package Modellayer;
 public class Customer {
 	private String name;
 	private String phoneNr;
-	private String customerNr;
+	private int customerNr;
 	private String email;
 	
-	public Customer(String name, String phoneNr, String customerNr, String email) {
+	public Customer(String name, String phoneNr, int customerNr, String email) {
 		super();
 		this.name = name;
 		this.phoneNr = phoneNr;
@@ -30,11 +30,11 @@ public class Customer {
 		this.phoneNr = phoneNr;
 	}
 
-	public String getCustomerNr() {
+	public int getCustomerNr() {
 		return customerNr;
 	}
 
-	public void setCustomerNr(String customerNr) {
+	public void setCustomerNr(int customerNr) {
 		this.customerNr = customerNr;
 	}
 

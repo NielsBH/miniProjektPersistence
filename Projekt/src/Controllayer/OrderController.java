@@ -28,9 +28,9 @@ public class OrderController implements OrderControllerIF {
 
 	@Override
 	public Customer addCustomer(String email) {
-		return null;
-		// TODO Auto-generated method stub
-		
+		CustomerControllerIF cc = new CustomerController();
+		Customer c = cc.findByEmail(email);
+		return c;
 	}
 
 	@Override

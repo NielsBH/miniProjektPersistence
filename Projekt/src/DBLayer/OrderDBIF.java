@@ -7,6 +7,7 @@ import Modellayer.Order;
 
 public interface OrderDBIF {
 	Order addOrder(Order o); 
+	void invoice(Order o);
 	Order buildObject(ResultSet rs);
 	void buildObjects(ResultSet rs);
 }

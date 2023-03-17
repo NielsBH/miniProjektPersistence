@@ -3,9 +3,9 @@ package Modellayer;
 public class Employee {
 	private String name;
 	private String phoneNr;
-	private String employeeNr;
+	private int employeeNr;
 	
-	public Employee(String name, String phoneNr, String employeeNr) {
+	public Employee(String name, String phoneNr, int employeeNr) {
 		super();
 		this.name = name;
 		this.phoneNr = phoneNr;
@@ -28,11 +28,11 @@ public class Employee {
 		this.phoneNr = phoneNr;
 	}
 
-	public String getEmployeeNr() {
+	public int getEmployeeNr() {
 		return employeeNr;
 	}
 
-	public void setEmployeeNr(String employeeNr) {
+	public void setEmployeeNr(int employeeNr) {
 		this.employeeNr = employeeNr;
 	}
 	

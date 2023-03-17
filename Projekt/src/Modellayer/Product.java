@@ -8,9 +8,11 @@ public class Product {
 	private String countryOfOrigin;
 	private int minStock;
 	private String barcode;
-	public Product(String name, double purchasePrice, double salePrice, double rentPrice, String countryOfOrigin,
+	private int productID;
+	public Product(int productID, String name, double purchasePrice, double salePrice, double rentPrice, String countryOfOrigin,
 			int minStock, String barcode) {
 		super();
+		this.productID = productID;
 		this.name = name;
 		this.purchasePrice = purchasePrice;
 		this.salePrice = salePrice;
@@ -61,6 +63,11 @@ public class Product {
 	public void setBarcode(String barcode) {
 		this.barcode = barcode;
 	}
-	
+	public int getProductID() {
+		return productID;
+	}
+	public void setID(int id) {
+		this.productID = id;
+	}
 	
 }

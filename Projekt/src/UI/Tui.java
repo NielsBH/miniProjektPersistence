@@ -12,7 +12,7 @@ public class Tui {
 	// Altså er logget ind før et salg er foretaget
 	// passende med use case "Order Processing"
 	public Tui() {
-		Employee emp = new Employee("Hanne", "25252525", "1");
+		Employee emp = new Employee("Hanne", "25252525", 1);
 		LoginController ec = LoginController.getInstance();
 		ec.login(emp);
 	}
@@ -82,11 +82,11 @@ public class Tui {
 		double total = o.getTotalPrice();
 		try {
 			Order resOrder = oc.payment(o);
+			System.out.println();
 			System.out.println("Salget er nu gennemført.");
 			for(Orderline ol : olList) {
 				System.out.println(ol.getQuantity() + "x" + " " + ol.getProduct().getName());
 			}
-			System.out.println();
 			System.out.println("                             Total beløb: " + total + "dkk");
 			if (payMethod == 1) {
 				System.out.println("                             Betalt kontant");
@@ -130,20 +130,25 @@ public class Tui {
     boolean isScanningProduct = true;
 
     while (isScanningProduct) {
-    	System.out.print("Vil du scanne produkt? 'ja' | 'nej'");
+    	System.out.println("Vil du scanne produkt? 'ja' | 'nej'");
         System.out.print("   -> ");
         String userInput = input.nextLine();
+        System.out.println();
+        
         if (userInput.equals("nej")) {
         	isScanningProduct = false;
         	break;
         }
-        System.out.print("Indtast barcode (scan produkt)");
+        
+        System.out.println("Indtast barcode (scan produkt)");
         System.out.print("   -> ");
         String barcode = input.nextLine();
         System.out.println();
+        
         System.out.println("Indtast antallet du skal bruge (0 stopper scanning)");
         System.out.print("   -> ");
         int quantity = input.nextInt();
+        input.nextLine();
         System.out.println();
         
         if (quantity == 0) {
