@@ -33,12 +33,14 @@ class OrderTest {
 		Employee emp = new Employee(EMPLOYEENAME, EMPLOYEEPHONENR, EMPLOYEENR);
 		loginCTRL.login(emp);
 	}
+	
 	@Test
 	void createOrderTest() {
 		Order o = null;
 		o = orderCTRL.createOrder();
 		assertTrue(o != null);
 	}
+	
 	@Test
 	void createAndAssociateEmployee() {
 		Order o = null;
@@ -46,13 +48,32 @@ class OrderTest {
 		assertEquals(o.getEmployee().getEmployeeNr(), EMPLOYEENR);
 	}
 	
-	// Denne tester både efter et ikke eksiterende men også ikke rigtig barcode
+	
 	@Test
 	void noProduktFound() {
 		Order o = null;
 		o = orderCTRL.createOrder();
 		Orderline ol = orderCTRL.scanProduct("00000", 1);
 		assertNull(ol);
+	}
+	
+	@Test
+	void scanProduct() {
+		Order o = null;
+		o = orderCTRL.createOrder();
+		Orderline ol = orderCTRL.scanProduct(BARCODE, 1);
+		assertEquals(ol.getProduct().getBarcode(), BARCODE);
+	}
+	
+	@Test
+	void isOrderlineWithProductAssociatedWithOrder() {
+		Order o = null;
+		o = orderCTRL.createOrder();
+		Orderline ol = orderCTRL.scanProduct(BARCODE, 4);
+		o.addOrderline(ol);
+		String olBarcode = ol.getProduct().getBarcode();
+		String oBarcode = o.getOrderLines().get(0).getProduct().getBarcode();
+		assertEquals(oBarcode, olBarcode);
 	}
 	
 	@Test
@@ -88,5 +109,16 @@ class OrderTest {
 		Order o = null;
 		o = orderCTRL.createOrder();
 		assertNull(orderCTRL.payment(null));
+	}
+	
+	@Test
+	void isCustomerAssociated() {
+		Order o = null;
+		o = orderCTRL.createOrder();
+		Customer c = orderCTRL.addCustomer(EMAIL);
+		if (c != null) {
+			o.addCustomer(c);
+		}
+		assertEquals(c.getName(), o.getCustomer().getName());
 	}
 }
