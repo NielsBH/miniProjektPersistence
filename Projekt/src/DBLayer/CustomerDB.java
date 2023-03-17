@@ -46,4 +46,10 @@ public class CustomerDB implements CustomerDBIF{
 		
 	}
 
+	@Override
+	public Customer createNewCustomer(String name, String phoneNr, int customerNr, String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

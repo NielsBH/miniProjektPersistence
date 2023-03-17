@@ -30,9 +30,16 @@ public class Tui {
                   newOrder();
                   break;
                 case 2:
+                	System.out.println("Ikke implementeret");
+//                	createProduct();
+                  break;
+                case 3:
+                	System.out.println("Ikke implementeret");
+//                	createCustomer();
+                	break;
+                case 4:
                 	System.out.println("Tak for denne gang.");
                     running = false;
-                  break;
                 default:
                   System.out.println("Der er sket en uforklarlig fejl, choice = "+choice);
                   break;
@@ -40,11 +47,71 @@ public class Tui {
         }
     }
 	
+	private void createProduct() {
+		ProductControllerIF pc = new ProductController();
+		Scanner input = new Scanner(System.in);
+		System.out.println("ProduktID (skal være >1)");
+        System.out.print("   -> ");
+        int pID = input.nextInt();
+        input.nextLine();
+        System.out.println();
+        
+        System.out.println("Produkt navn");
+        System.out.print("   -> ");
+        String pName = input.nextLine();
+        System.out.println();
+        
+        System.out.println("Firma pris for produktet");
+        System.out.print("   -> ");
+        double purchasePrice = input.nextDouble();
+        input.nextLine();
+        System.out.println();
+        
+        System.out.println("Salgs pris for produktet");
+        System.out.print("   -> ");
+        double salePrice = input.nextDouble();
+        input.nextLine();
+        System.out.println();
+		
+        System.out.println("Låne pris for produktet");
+        System.out.print("   -> ");
+        double rentPrice = input.nextDouble();
+        input.nextLine();
+        System.out.println();
+        
+        System.out.println("Land produktet er fra");
+        System.out.print("   -> ");
+        String countryOR = input.nextLine();
+        System.out.println();
+        
+        System.out.println("Mængde af varen på lager");
+        System.out.print("   -> ");
+        int minStock = input.nextInt();
+        input.nextLine();
+        System.out.println();
+        
+        System.out.println("Produkt barcode (max 13 tegn)");
+        System.out.print("   -> ");
+        String barcode = input.nextLine();
+        System.out.println();
+        
+        pc.newProduct(pID,pName, purchasePrice, salePrice, rentPrice, countryOR, minStock, barcode);
+        System.out.println(pName + " blev oprettet i systemet med '" + barcode + "' som barcode");
+        System.out.println();
+	}
+
+	private void createCustomer() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private int userInput() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Hovedmenu ******");
         System.out.println(" (1) Foretag salg");
-        System.out.println(" (2) Afslut");
+        System.out.println(" (2) Opret nyt Produkt");
+        System.out.println(" (3) Opret ny Kunde");
+        System.out.println(" (4) Afslut");
         System.out.print("\n Vælg:");
         
         while (!keyboard.hasNextInt()) {

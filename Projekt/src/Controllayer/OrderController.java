@@ -9,12 +9,18 @@ public class OrderController implements OrderControllerIF {
 	public Order createOrder() {
 		LoginControllerIF lc = LoginController.getInstance();
 		Employee e = lc.getLoginEmp();
+		if (e == null) {
+			return null;
+		}
 		Order o = new Order(e);
 		return o;
 	}
 
 	@Override
 	public Orderline scanProduct(String barcode, int quantity) {
+		if (quantity == 0) {
+			return null;
+		}
 		ProductControllerIF pc = new ProductController();
 		Product p = pc.findByBarcode(barcode);
 		
@@ -36,6 +42,9 @@ public class OrderController implements OrderControllerIF {
 	@Override
 	public Order payment(Order o) {
 		Order res = null;
+		if (o == null) {
+			return null;
+		}
 		o = o.finishOrder(o);
 		OrderDBIF odb = new OrderDB(); 
 		res = odb.addOrder(o);

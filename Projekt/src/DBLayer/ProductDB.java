@@ -49,4 +49,11 @@ public class ProductDB implements ProductDBIF{
 		
 	}
 
+	@Override
+	public Product createNewProduct(int productID, String name, double purchasePrice, double salePrice,
+			double rentPrice, String countryOfOrigin, int minStock, String barcode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

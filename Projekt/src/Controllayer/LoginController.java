@@ -33,4 +33,9 @@ public class LoginController implements LoginControllerIF {
 		return emp;
 	}
 
+	@Override
+	public void logOut() {
+		login(null);
+	}
+
 }
